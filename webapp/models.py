@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from cloudinary.models import CloudinaryField
 
 class Buyer(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
@@ -24,7 +25,7 @@ class Product(models.Model):
     name_product=models.CharField(max_length=30) #name
     description=models.TextField(max_length=50) #descript
     price=models.FloatField() #get price
-    photo=models.ImageField(upload_to='photo/',blank=True , null=True) #a pic of product
+    photo=CloudinaryField('image',blank=True , null=True) #a pic of product
     seller_pr=models.ForeignKey(Seller,on_delete=models.CASCADE) #link to seller
     created_at=models.DateTimeField(auto_now_add=True) #timestamp for adding product
 

@@ -5,7 +5,7 @@ from .import views
 
 urlpatterns = [
     path('',views.home,name='home'),
-    path('/reg_sell',views.register_seller_view,name='register_seller'),
+    path('reg_sell/',views.register_seller_view,name='register_seller'),
     path('register/buyer/', views.register_buyer_view, name='register_buyer'),
     path('products/', views.products, name='product_list'),
     path('logout/', views.logout_us, name='logout'),
